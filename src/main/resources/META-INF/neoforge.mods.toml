@@ -1,0 +1,34 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "LGPLv3"
+
+[[mods]]
+modId = "krypton"
+version = "${version}"
+displayName = "KryptonFoxified"
+displayURL="https://github.com/ThinkingStudios/Krypton-Foxified" #optional
+logoFile="icon.png" #optional
+credits="tuxed" #optional
+authors="TexTrue, ThinkingStudio" #optional
+description = '''
+Krypton unofficial NeoForge port.
+
+A mod that optimizes the Minecraft networking stack and entity tracker.
+'''
+
+[[mixins]]
+config = "krypton.mixins.json"
+
+[[dependencies.servux]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "SERVER"
+
+[[dependencies.servux]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "SERVER"
