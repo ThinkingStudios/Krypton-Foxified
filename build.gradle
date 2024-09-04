@@ -1,6 +1,7 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
-    id 'maven-publish'
+    id "dev.architectury.loom" version "1.7-SNAPSHOT"
+    id "com.hypherionmc.modutils.modpublisher" version "2.+"
+    id "maven-publish"
 }
 
 repositories {
@@ -10,11 +11,11 @@ repositories {
     maven { name 'Jitpack'; url 'https://jitpack.io' }
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
 
 archivesBaseName = project.archives_base_name
-version = project.mod_version
+version = "${project.mod_version}+mc${project.minecraft_version}"
 group = project.maven_group
 
 configurations {
@@ -22,13 +23,16 @@ configurations {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
 
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    modImplementation include("com.velocitypowered:velocity-native:3.2.0-SNAPSHOT")
+    mappings loom.layered {
+        mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+        mappings "dev.architectury:yarn-mappings-patch-neoforge:${project.yarn_patch}"
+    }
+    neoForge "net.neoforged:neoforge:${project.neoforge_version}"
+    forgeRuntimeLibrary(modImplementation(include("com.velocitypowered:velocity-native:3.3.0-SNAPSHOT")))
 }
 
 test {
@@ -38,7 +42,7 @@ test {
 processResources {
     inputs.property "version", project.version
 
-    filesMatching("fabric.mod.json") {
+    filesMatching("META-INF/neoforge.mods.toml") {
         expand "version": project.version
     }
 }
@@ -59,6 +63,10 @@ java {
 
 jar {
     from "LICENSE"
+}
+
+remapJar {
+    atAccessWideners.add("krypton.accesswidener")
 }
 
 // configure the maven publication
@@ -92,4 +100,23 @@ afterEvaluate {
 
 loom {
     accessWidenerPath = file("src/main/resources/krypton.accesswidener")
+}
+
+publisher {
+    apiKeys {
+        modrinth System.getenv("MODRINTH_TOKEN")
+        curseforge System.getenv("CURSEFORGE_TOKEN")
+    }
+
+    setCurseID("${project.curseforge_id}")
+    setModrinthID("${project.modrinth_id}")
+    setVersionType("alpha")
+    setChangelog(file("CHANGELOG.md").getText("UTF-8"))
+    setVersion("${project.version}")
+    setDisplayName("${project.version}")
+    setGameVersions("1.20.5", "1.20.6")
+    setLoaders("neoforge")
+    setCurseEnvironment("client")
+    setArtifact(remapJar)
+    addAdditionalFile(sourcesJar)
 }

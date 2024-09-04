@@ -1,17 +1,15 @@
 package me.steinborn.krypton.mod.client;
 
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Environment(EnvType.CLIENT)
-public class KryptonClientInitializer implements ClientModInitializer {
+@OnlyIn(Dist.CLIENT)
+public class KryptonClientInitializer {
     private static final Logger LOGGER = LogManager.getLogger(KryptonClientInitializer.class);
 
-    @Override
-    public void onInitializeClient() {
+    public static void onInitializeClient() {
         LOGGER.info("Krypton is now accelerating your Minecraft client's networking stack \uD83D\uDE80");
         LOGGER.info("Note that Krypton is most effective on servers, not the client.");
     }
