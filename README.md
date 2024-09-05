@@ -1,4 +1,4 @@
-<img height="100" src="./src/main/resources/icon.png" width="100" alt=""/>
+<img height="100" src="src/main/resources/icon.png" width="100" alt=""/>
 
 # Krypton Foxified
 
