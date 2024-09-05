@@ -116,7 +116,7 @@ publisher {
     setDisplayName("${project.version}")
     setGameVersions("1.20.5", "1.20.6")
     setLoaders("neoforge")
-    setCurseEnvironment("client")
+    setCurseEnvironment("client", "server")
     setArtifact(remapJar)
     addAdditionalFile(sourcesJar)
 }
