@@ -1,5 +1,6 @@
 package me.steinborn.krypton.mod.shared;
 
+import net.neoforged.fml.ModList;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -19,6 +20,10 @@ public class KryptonMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.contains("CustomPayloadS2CPacketFabricAPICompatMixin")) {
+            // This mixin should only apply when Fabric API is present.
+            return ModList.get().isLoaded("fabric-api");
+        }
         return true;
     }
 

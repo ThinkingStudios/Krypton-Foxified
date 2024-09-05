@@ -1,2 +1,2 @@
 # Change
-port to NeoForge 1.20.6
+port to NeoForge 1.20.4
