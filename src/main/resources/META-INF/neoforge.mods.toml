@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[3,)"
+loaderVersion = "[1,)"
 license = "LGPLv3"
 
 [[mods]]
@@ -22,13 +22,13 @@ config = "krypton.mixins.json"
 [[dependencies.krypton]]
 modId = "neoforge"
 type = "required"
-versionRange = "[20.5,20.6]"
+versionRange = "[20.2,20.4]"
 ordering = "NONE"
 side = "SERVER"
 
 [[dependencies.krypton]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.20.5,1.20.6]"
+versionRange = "[1.20.2,1.20.4]"
 ordering = "NONE"
 side = "SERVER"
