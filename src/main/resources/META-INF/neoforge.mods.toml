@@ -19,14 +19,14 @@ A mod that optimizes the Minecraft networking stack and entity tracker.
 [[mixins]]
 config = "krypton.mixins.json"
 
-[[dependencies.servux]]
+[[dependencies.krypton]]
 modId = "neoforge"
 type = "required"
 versionRange = "[21,)"
 ordering = "NONE"
 side = "SERVER"
 
-[[dependencies.servux]]
+[[dependencies.krypton]]
 modId = "minecraft"
 type = "required"
 versionRange = "[1.21,)"
