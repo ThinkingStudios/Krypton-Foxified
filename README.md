@@ -11,8 +11,6 @@ Krypton derives itself from Ancient Greek _kryptos_, which means "the hidden one
 it evident most of the benefit from Krypton is "hidden" but is noticeable by a server administrator.
 
 [The wiki contains important information &ndash; read it](https://github.com/astei/krypton/wiki).
-[Join my Discord](https://discord.gg/RUGArxEQ8J) to discuss the mod or get support if the wiki didn't
-answer your question.
 
 ## Compiling / Releases
 
@@ -21,7 +19,7 @@ ability to be used on every server, or support for every possible setup out ther
 for this mod is provided on a "best-effort" basis. This is not my day job, it is a hobby
 growing out of related work I've done. **You have been warned.**
 
-Releases I deem reasonably stable can be found on [GitHub](https://github.com/ThinkingStudios/Krypton-Foxified/releases),
+Releases I deem reasonably stable can be found on [GitHub](https://github.com/ThinkingStudios/KryptonFoxified/releases),
 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/krypton-foxified), and on [Modrinth](https://modrinth.com/mod/krypton-foxified).
 Development builds may be downloaded from Github Actions on this repo.
 
