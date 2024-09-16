@@ -22,13 +22,13 @@ config = "krypton.mixins.json"
 [[dependencies.krypton]]
 modId = "neoforge"
 type = "required"
-versionRange = "[20.2,20.4]"
+versionRange = "[20.2,20.5)"
 ordering = "NONE"
 side = "SERVER"
 
 [[dependencies.krypton]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.20.2,1.20.4]"
+versionRange = "[1.20.2,1.20.5)"
 ordering = "NONE"
 side = "SERVER"

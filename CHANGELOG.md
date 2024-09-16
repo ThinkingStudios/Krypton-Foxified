@@ -1,2 +1,2 @@
-# Change
-port to NeoForge 1.20.4
+## Change
+- fix modinfo
